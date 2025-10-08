@@ -12,7 +12,7 @@ public class PlayerInputController : MonoBehaviour
     [Header("Action Name References")]
     [SerializeField] private string movement = "Movement";
     [SerializeField] private string look= "Look";
-//    [SerializeField] private string sprint = "Sprint";
+    //    [SerializeField] private string sprint = "Sprint";
 
     private InputAction movementAction;
     private InputAction lookAction;
@@ -49,14 +49,15 @@ public class PlayerInputController : MonoBehaviour
 //        sprintAction.canceled += inputInfo => RunningTriggered = false;
     }
 
-    private void OnEnable()
+    public void OnEnable()
     {
         playerControls.FindActionMap(actionMapName).Enable();
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         playerControls.FindActionMap(actionMapName).Disable();
     }
 
 }
+
