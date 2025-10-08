@@ -18,6 +18,7 @@ public class AILionPatrol : MonoBehaviour
     [SerializeField] private float viewAngle;
     [SerializeField] private float viewDistance;
     [SerializeField] private int numberOfRays;
+    [SerializeField] private Transform raycastStart;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -66,10 +67,10 @@ public class AILionPatrol : MonoBehaviour
             Vector3 rayDirection = Quaternion.Euler(0, currentAngle, 0) * transform.forward;
 
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, rayDirection, out hit, viewDistance))
+            if (Physics.Raycast(raycastStart.transform.position, rayDirection, out hit, viewDistance))
             {
                 // Handle what the ray hits (e.g., check for player, obstacles)
-                Debug.DrawRay(transform.position, rayDirection * hit.distance, UnityEngine.Color.red);
+                Debug.DrawRay(raycastStart.transform.position, rayDirection * hit.distance, UnityEngine.Color.red);
                 if (hit.collider.CompareTag("Player"))
                 {
                     Debug.Log("Player detected!");
@@ -78,7 +79,7 @@ public class AILionPatrol : MonoBehaviour
             }
             else
             {
-                Debug.DrawRay(transform.position, rayDirection * viewDistance, UnityEngine.Color.green);
+                Debug.DrawRay(raycastStart.transform.position, rayDirection * viewDistance, UnityEngine.Color.green);
             }
         }
     }
