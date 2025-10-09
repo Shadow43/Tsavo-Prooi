@@ -75,7 +75,7 @@ public class AILionPatrol : MonoBehaviour
                 Debug.DrawRay(raycastStart.transform.position, rayDirection * hit.distance, UnityEngine.Color.red);
                 if (hit.collider.CompareTag("Player"))
                 {
-                    Debug.Log("Player detected via LionAIPatrol Script!");
+//                    Debug.Log("Player detected via LionAIPatrol Script!");
                     // Trigger AI actions
                     agent.SetDestination(player.transform.position);
                     debugDialogue.LionDetectedPlayerCalled = true;
@@ -110,7 +110,7 @@ bool RandomPoint(Vector3 center, float range, out Vector3 result)
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Lion caught player");
-            debugDialogue.text.text = "The Lion has detected and is about to stalk the player";
+            debugDialogue.text.text = "The Lion has caught and is about to devour the player";
             debugDialogue.LionCaughtPlayer();
             isPaused = true;
         }
