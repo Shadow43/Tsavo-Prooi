@@ -19,6 +19,7 @@ public class AILionPatrol : MonoBehaviour
     [SerializeField] private float viewDistance;
     [SerializeField] private int numberOfRays;
     [SerializeField] private Transform raycastStart;
+    [SerializeField] private Dialogue debugDialogue;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -73,19 +74,22 @@ public class AILionPatrol : MonoBehaviour
                 Debug.DrawRay(raycastStart.transform.position, rayDirection * hit.distance, UnityEngine.Color.red);
                 if (hit.collider.CompareTag("Player"))
                 {
-//                    Debug.Log("Player detected!");
+                    Debug.Log("Player detected!");
                     // Trigger AI actions
                     agent.SetDestination(player.transform.position);
-                    if (viewDistance >= 11 && viewDistance <= 20)
-                    {
-                        Debug.Log("Lion has detected you");
+
+                    debugDialogue.LionDetectedPlayer();
+
+//                    if (viewDistance >= 11 && viewDistance <= 20)
+//                    {
+//                        Debug.Log("Lion has detected you");
 //                        agent.speed = 7;
-                    }
-                    if (viewDistance >= 1 && viewDistance <= 10)
-                    {
-                        Debug.Log("Lion is very close to you");
+//                    }
+//                    if (viewDistance >= 1 && viewDistance <= 10)
+//                    {
+//                        Debug.Log("Lion is very close to you");
 //                        agent.speed = 10;
-                    }
+//                    }
                 }
             }
             else
