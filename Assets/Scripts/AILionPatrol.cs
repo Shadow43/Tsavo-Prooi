@@ -26,7 +26,6 @@ public class AILionPatrol : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        debugDialogue.lionState1.text = string.Empty;
     }
 
     // Update is called once per frame
@@ -79,15 +78,15 @@ public class AILionPatrol : MonoBehaviour
                     Debug.Log("Player detected via LionAIPatrol Script!");
                     // Trigger AI actions
                     agent.SetDestination(player.transform.position);
-                    debugDialogue.lionState1.text = "The Lion has detected the Player.";
+                    debugDialogue.LionDetectedPlayerCalled = true;
+//                    debugDialogue.text.text = "The Lion has detected and is about to stalk the player";
+//                    debugDialogue.LionDetectedPlayerCalled = !debugDialogue.LionDetectedPlayerCalled;
                     debugDialogue.LionDetectedPlayer();
                 }
-                debugDialogue.lionState1.text = string.Empty;
-
-            }
-            else
-            {
-                Debug.DrawRay(raycastStart.transform.position, rayDirection * viewDistance, UnityEngine.Color.green);
+                else
+                {
+                    Debug.DrawRay(raycastStart.transform.position, rayDirection * viewDistance, UnityEngine.Color.green);
+                }
             }
         }
     }
@@ -104,5 +103,16 @@ bool RandomPoint(Vector3 center, float range, out Vector3 result)
 
         result = Vector3.zero;
         return false;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Lion caught player");
+            debugDialogue.text.text = "The Lion has detected and is about to stalk the player";
+            debugDialogue.LionCaughtPlayer();
+            isPaused = true;
+        }
     }
 }

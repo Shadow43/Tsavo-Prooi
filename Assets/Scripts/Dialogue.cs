@@ -5,17 +5,35 @@ using TMPro;
 public class Dialogue : MonoBehaviour
 {
 
-    public TMP_Text lionState1;
-    public TMP_Text lionState2;
-    public TMP_Text lionState3;
-    public TMP_Text lionState4;
+    public TMP_Text text;
+    public bool LionDetectedPlayerCalled;
 
+    private void Start()
+    {
+        text.color = Color.red;
+        text.text = string.Empty;
+
+    }
+    private void Update()
+    {
+//        if (!LionDetectedPlayerCalled)
+//        {
+//            text.text = string.Empty;
+//        }
+    }
     public void LionDetectedPlayer()
     {
         Debug.Log("The function for the lion detecting the player for text on screen!");
-        lionState1.text = "The Lion has detected the Player.";
-        string lionState = " " + lionState1;
-        lionState1.text = lionState;
+//        LionDetectedPlayerCalled = !LionDetectedPlayerCalled;
+        string lionState = "The Lion has detected and is about to stalk the player";
+        text.text = lionState;
+    }
+
+    public void LionCaughtPlayer()
+    {
+        Debug.Log("The function for the lion catching the player for text on screen!");
+        string lionState = "The Lion has caught and is about to devour the player";
+        text.text = lionState;
     }
 
 }
