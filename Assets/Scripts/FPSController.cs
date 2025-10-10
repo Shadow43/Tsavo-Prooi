@@ -4,6 +4,7 @@ public class FPSController : MonoBehaviour
 {
     [Header("Movement Speeds")]
     [SerializeField] private float walkSpeed = 3.0f;
+    [SerializeField] private float RunMultiplyer = 2.0f;
 
     [Header("Look parameters")]
     [SerializeField] private float mSensativity = 0.2f;
@@ -17,6 +18,8 @@ public class FPSController : MonoBehaviour
     private Vector3 currentMovement;
     private float lookUpDown;
 
+    private float currentSpeed => walkSpeed + (playerInputController.RunningTriggered ? RunMultiplyer : 1f);
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,6 +32,7 @@ public class FPSController : MonoBehaviour
     {
         HandleMovement();
         HandleLook();
+        Debug.Log("Current Speed is " + currentSpeed);
     }
 
     private Vector3 calculateWorldDirection()
@@ -41,8 +45,11 @@ public class FPSController : MonoBehaviour
     private void HandleMovement()
     {
         Vector3 worldDirection = calculateWorldDirection();
-        currentMovement.x = worldDirection.x * walkSpeed;
-        currentMovement.z = worldDirection.z * walkSpeed;
+//        currentMovement.x = worldDirection.x * walkSpeed;
+//        currentMovement.z = worldDirection.z * walkSpeed;
+
+        currentMovement.x = worldDirection.x * currentSpeed;
+        currentMovement.z = worldDirection.z * currentSpeed;
 
         characterController.Move(currentMovement * Time.deltaTime);
     }

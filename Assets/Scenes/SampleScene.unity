@@ -1777,7 +1777,9 @@ MonoBehaviour:
   isPaused: 1
   stalkingRange: 0
   huntingRange: 0
+  isCaught: 0
   player: {fileID: 1694050187}
+  targetObject: {fileID: 1694050186}
   viewAngle: 75
   viewDistance: 20
   numberOfRays: 80
@@ -2236,7 +2238,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 160631560}
-  LionDetectedPlayerCalled: 0
 --- !u!4 &743581182
 Transform:
   m_ObjectHideFlags: 0
@@ -2384,6 +2385,7 @@ MonoBehaviour:
   actionMapName: Player
   movement: Movement
   look: Look
+  sprint: Sprint
 --- !u!1 &1130610062
 GameObject:
   m_ObjectHideFlags: 0
@@ -3815,6 +3817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
+  RunMultiplyer: 2.1
   mSensativity: 0.2
   lookRange: 35
   characterController: {fileID: 1694050189}

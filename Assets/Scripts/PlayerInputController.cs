@@ -12,17 +12,17 @@ public class PlayerInputController : MonoBehaviour
     [Header("Action Name References")]
     [SerializeField] private string movement = "Movement";
     [SerializeField] private string look= "Look";
-    //    [SerializeField] private string sprint = "Sprint";
+    [SerializeField] private string sprint = "Sprint";
 
     private InputAction movementAction;
     private InputAction lookAction;
-//    private InputAction sprintAction;
+    private InputAction sprintAction;
 
 
     public Vector2 MovementInput { get; private set; }
     public Vector2 lookInput { get; private set; }
 //    public bool CrouchTriggered { get; private set; }
-//    public bool RunningTriggered { get; private set; }
+    public bool RunningTriggered { get; private set; }
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class PlayerInputController : MonoBehaviour
 
         movementAction = mapReference.FindAction(movement);
         lookAction = mapReference.FindAction(look);
-//        sprintAction = mapReference.FindAction(sprint);
+        sprintAction = mapReference.FindAction(sprint);
 
 
         SubscribeActionValuesToInputEvents();
@@ -45,8 +45,8 @@ public class PlayerInputController : MonoBehaviour
         lookAction.performed += inputInfo => lookInput = inputInfo.ReadValue<Vector2>();
         lookAction.canceled += inputInfo => lookInput = Vector2.zero;
 
-//        sprintAction.performed += inputInfo => RunningTriggered = true;
-//        sprintAction.canceled += inputInfo => RunningTriggered = false;
+        sprintAction.performed += inputInfo => RunningTriggered = true;
+        sprintAction.canceled += inputInfo => RunningTriggered = false;
     }
 
     public void OnEnable()

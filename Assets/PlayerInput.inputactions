@@ -34,7 +34,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Run",
+                    "name": "Sprint",
                     "type": "Button",
                     "id": "270a43c8-94e3-47b3-9c23-16e3d24deca0",
                     "expectedControlType": "",
@@ -128,7 +128,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Run",
+                    "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
