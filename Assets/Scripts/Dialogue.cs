@@ -6,7 +6,7 @@ public class Dialogue : MonoBehaviour
 {
 
     public TMP_Text text;
-    public bool LionDetectedPlayerCalled;
+//    public bool LionDetectedPlayerCalled;
 
     private void Start()
     {
@@ -33,6 +33,18 @@ public class Dialogue : MonoBehaviour
     {
         Debug.Log("The function for the lion catching the player for text on screen!");
         string lionState = "The Lion has caught and is about to devour the player";
+        text.text = lionState;
+    }
+    public void LionChasingPlayer()
+    {
+        Debug.Log("The function for the lion chasing the player for text on screen!");
+        string lionState = "The Lion is currently chasing the player. RUN!";
+        text.text = lionState;
+    }
+    public void LionStalkingPlayer()
+    {
+        Debug.Log("The function for the lion stalking the player for text on screen!");
+        string lionState = "The Lion is currently stalking the player.";
         text.text = lionState;
     }
 

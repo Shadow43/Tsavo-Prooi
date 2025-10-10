@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using System.Drawing;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class AILionPatrol : MonoBehaviour
 {
@@ -15,8 +17,10 @@ public class AILionPatrol : MonoBehaviour
     [SerializeField] private bool isPaused;
     [SerializeField] private bool stalkingRange;
     [SerializeField] private bool huntingRange;
+    [SerializeField] private bool isCaught;
 
     [SerializeField] private Transform player;
+    [SerializeField] private GameObject targetObject;
     [SerializeField] private float viewAngle;
     [SerializeField] private float viewDistance;
     [SerializeField] private int numberOfRays;
@@ -26,6 +30,8 @@ public class AILionPatrol : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+//        stalkingRange = false;
+//        huntingRange = false;
     }
 
     // Update is called once per frame
@@ -78,10 +84,9 @@ public class AILionPatrol : MonoBehaviour
 //                    Debug.Log("Player detected via LionAIPatrol Script!");
                     // Trigger AI actions
                     agent.SetDestination(player.transform.position);
-                    debugDialogue.LionDetectedPlayerCalled = true;
+//                    debugDialogue.LionDetectedPlayerCalled = true;
 //                    debugDialogue.text.text = "The Lion has detected and is about to stalk the player";
-//                    debugDialogue.LionDetectedPlayerCalled = !debugDialogue.LionDetectedPlayerCalled;
-                    debugDialogue.LionDetectedPlayer();
+                    checkDistance();
                 }
                 else
                 {
@@ -105,14 +110,52 @@ bool RandomPoint(Vector3 center, float range, out Vector3 result)
         return false;
     }
 
-    void OnCollisionEnter(Collision collision)
+
+
+    public void checkDistance()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        float dist = Vector3.Distance(transform.position, targetObject.transform.position);
+//        Debug.Log($"Distance to player is: {dist}");
+        if (dist >= 2.0f && dist <= 10.0f)
         {
             Debug.Log("Lion caught player");
-            debugDialogue.text.text = "The Lion has caught and is about to devour the player";
-            debugDialogue.LionCaughtPlayer();
+//            debugDialogue.text.text = "The Lion has caught and is about to devour the player";
+//            debugDialogue.LionCaughtPlayer();
             isPaused = true;
         }
+        if (dist >= 11.1 && dist <= 20.0f)
+        {
+            Debug.Log("Lion is activly chasing the player");
+            agent.speed = 5.0f;
+        }
+        if (dist >= 21.01f && dist <= 29.0f)
+        {
+            Debug.Log("Lion is stalking the player");
+            agent.speed = 7.0f;
+        }
+        if (dist >= 29.01f && dist <= 30.0f)
+        {
+            Debug.Log("Lion is loosing the player");
+            agent.speed = 3.0f;
+        }
+
+
+        //        if (stalkingRange == false)
+        //        {
+        //            debugDialogue.LionDetectedPlayer();
+        //            stalkingRange = true;
+        //        }
+
     }
+    //    void OnCollisionEnter(Collision collision)
+    //    {
+    //        if (collision.gameObject.CompareTag("Player"))
+    //        {
+    //            Debug.Log("Lion caught player");
+    //            debugDialogue.text.text = "The Lion has caught and is about to devour the player";
+    //            debugDialogue.LionCaughtPlayer();
+    //            isPaused = true;
+    //        }
+    //    }
 }
+
