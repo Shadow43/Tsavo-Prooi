@@ -10,15 +10,15 @@ public class AILionPatrol : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private float range;
-
     [SerializeField] private Transform centrePoint;
 
     [SerializeField] private bool playerInRange;
     [SerializeField] private bool isPaused;
-    [SerializeField] private bool stalkingRange;
-    [SerializeField] private bool huntingRange;
-    [SerializeField] private bool isCaught;
+//    [SerializeField] private bool stalkingRange;
+//    [SerializeField] private bool huntingRange;
+//    [SerializeField] private bool isCaught;
 
+    [SerializeField] private PlayerInputController playercontrol;
     [SerializeField] private Transform player;
     [SerializeField] private GameObject targetObject;
     [SerializeField] private float viewAngle;
@@ -30,8 +30,8 @@ public class AILionPatrol : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-//        stalkingRange = false;
-//        huntingRange = false;
+        //        stalkingRange = false;
+        //        huntingRange = false;
     }
 
     // Update is called once per frame
@@ -47,6 +47,8 @@ public class AILionPatrol : MonoBehaviour
         {
             agent.isStopped = false;
         }
+//        Debug.Log("Current Speed is " + agent.speed);
+
     }
 
 
@@ -116,28 +118,40 @@ bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
         float dist = Vector3.Distance(transform.position, targetObject.transform.position);
 //        Debug.Log($"Distance to player is: {dist}");
-        if (dist >= 2.0f && dist <= 10.0f)
+        if (dist >= 0.01f && dist <= 5.0f)
         {
-            Debug.Log("Lion caught player");
+            agent.speed = 3f;
+//            Debug.Log("Lion caught player");
 //            debugDialogue.text.text = "The Lion has caught and is about to devour the player";
-//            debugDialogue.LionCaughtPlayer();
+            debugDialogue.LionCaughtPlayer();
             isPaused = true;
+            playercontrol.OnDisable();
+            
         }
-        if (dist >= 11.1 && dist <= 20.0f)
+        if (dist >= 5.01f && dist <= 10.0f)
         {
-            Debug.Log("Lion is activly chasing the player");
-            agent.speed = 5.0f;
+//            Debug.Log("Lion is activly stalking the player");
+            debugDialogue.LionDetectedPlayer();
+            agent.speed = 5f;
         }
-        if (dist >= 21.01f && dist <= 29.0f)
+        if (dist >= 11.01f && dist <= 19.0f)
         {
-            Debug.Log("Lion is stalking the player");
-            agent.speed = 7.0f;
+//            Debug.Log("Lion is chasing the player");
+            agent.speed = 7f;
+            debugDialogue.LionChasingPlayer();
         }
-        if (dist >= 29.01f && dist <= 30.0f)
+        if (dist >= 19.01f && dist <= 19.99f)
         {
-            Debug.Log("Lion is loosing the player");
-            agent.speed = 3.0f;
+            debugDialogue.LionLoosingPlayer();
+//            Debug.Log("Lion is loosing the player");
+            agent.speed = 3f;
         }
+        if (dist >= 20f)
+        {
+            debugDialogue.LionLostPlayer();
+            agent.speed = 3f;
+//            Debug.Log("Lion has lost the player");
+        }    
 
 
         //        if (stalkingRange == false)

@@ -3,12 +3,12 @@ using UnityEngine;
 public class FPSController : MonoBehaviour
 {
     [Header("Movement Speeds")]
-    [SerializeField] private float walkSpeed = 3.0f;
-    [SerializeField] private float RunMultiplyer = 2.0f;
+    [SerializeField] private float walkSpeed;
+    [SerializeField] private float RunMultiplyer;
 
     [Header("Look parameters")]
-    [SerializeField] private float mSensativity = 0.2f;
-    [SerializeField] private float lookRange = 35f;
+    [SerializeField] private float mSensativity;
+    [SerializeField] private float lookRange;
 
     [Header("First Person References")]
     [SerializeField] private CharacterController characterController;
@@ -32,7 +32,6 @@ public class FPSController : MonoBehaviour
     {
         HandleMovement();
         HandleLook();
-        Debug.Log("Current Speed is " + currentSpeed);
     }
 
     private Vector3 calculateWorldDirection()

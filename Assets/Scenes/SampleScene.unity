@@ -1711,7 +1711,6 @@ GameObject:
   - component: {fileID: 505488028}
   - component: {fileID: 505488029}
   - component: {fileID: 505488030}
-  - component: {fileID: 505488031}
   m_Layer: 0
   m_Name: Lion
   m_TagString: Untagged
@@ -1728,7 +1727,7 @@ Transform:
   m_GameObject: {fileID: 505488026}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30, y: 0.1, z: -9.5}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1746,7 +1745,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.2
-  m_Speed: 5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1774,14 +1773,12 @@ MonoBehaviour:
   range: 60
   centrePoint: {fileID: 93667886}
   playerInRange: 0
-  isPaused: 1
-  stalkingRange: 0
-  huntingRange: 0
-  isCaught: 0
+  isPaused: 0
+  playercontrol: {fileID: 1117856812}
   player: {fileID: 1694050187}
   targetObject: {fileID: 1694050186}
   viewAngle: 75
-  viewDistance: 20
+  viewDistance: 20.01
   numberOfRays: 80
   raycastStart: {fileID: 1756907320}
   debugDialogue: {fileID: 743581181}
@@ -1812,27 +1809,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &505488031
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 505488026}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 1, z: 3}
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &594558201
 GameObject:
   m_ObjectHideFlags: 0
@@ -3817,7 +3793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
-  RunMultiplyer: 2.1
+  RunMultiplyer: 2.5
   mSensativity: 0.2
   lookRange: 35
   characterController: {fileID: 1694050189}
