@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections.Generic;
 using System.Drawing;
 using TMPro;
@@ -13,9 +14,6 @@ public class AILionPatrol : MonoBehaviour
 
     [SerializeField] private bool playerInRange;
     [SerializeField] private bool isPaused;
-//    [SerializeField] private bool stalkingRange;
-//    [SerializeField] private bool huntingRange;
-//    [SerializeField] private bool isCaught;
 
     [SerializeField] private PlayerInputController playercontrol;
     [SerializeField] private Transform player;
@@ -29,8 +27,6 @@ public class AILionPatrol : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //        stalkingRange = false;
-        //        huntingRange = false;
     }
 
     // Update is called once per frame
@@ -150,7 +146,7 @@ bool RandomPoint(Vector3 center, float range, out Vector3 result)
             debugDialogue.LionLostPlayer();
             agent.speed = 3f;
 //            Debug.Log("Lion has lost the player");
-        }    
+        }
 
 
         //        if (stalkingRange == false)
@@ -159,6 +155,10 @@ bool RandomPoint(Vector3 center, float range, out Vector3 result)
         //            stalkingRange = true;
         //        }
 
+    }
+    public void setPaused(bool value)
+    {
+        isPaused = value;
     }
     //    void OnCollisionEnter(Collision collision)
     //    {

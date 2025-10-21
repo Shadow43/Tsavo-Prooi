@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 
-
 public class Dialogue : MonoBehaviour
 {
 
@@ -12,7 +11,6 @@ public class Dialogue : MonoBehaviour
     {
         text.color = Color.red;
         text.text = string.Empty;
-
     }
     private void Update()
     {
