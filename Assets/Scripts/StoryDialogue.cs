@@ -1,7 +1,9 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class StoryDialogue : MonoBehaviour
 {
@@ -100,10 +102,11 @@ public class StoryDialogue : MonoBehaviour
         repairTrap.onClick.AddListener(() => OnButtonClick("Repair Trap"));
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        storyDialogue.OnDisable();
     }
     public void OnButtonClick(string buttonName)
     {
-        Debug.Log("Button Clicked " + buttonName);
+//        Debug.Log("Button Clicked " + buttonName);
         if (buttonName == "Kill Lion")
         {
             storyDialogue.SetKillLion(true);
@@ -114,6 +117,7 @@ public class StoryDialogue : MonoBehaviour
             eToContinue.text = continueE;
             repairTrapButton.SetActive(false);
             killLionButton.SetActive(false);
+            storyDialogue.OnEnable();
         }
         if (buttonName == "Repair Trap")
         {
@@ -125,11 +129,7 @@ public class StoryDialogue : MonoBehaviour
             eToContinue.text = continueE;
             repairTrapButton.SetActive(false);
             killLionButton.SetActive(false);
-        }
-        storyDialogue.textnumber++;
-        if (storyDialogue.textnumber > 5)
-        {
-            storyDialogue.textnumber = 5;
+            storyDialogue.OnEnable();
         }
     }
     public void SixthTextLine()
@@ -148,6 +148,12 @@ public class StoryDialogue : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        lionPatrol.setPaused(false);
+        storyDialogue.OnDisable();
+//        lionPatrol.setPaused(false);
     }
+    public void OnMouseUpAsButton()
+    {
+        storyDialogue.textnumber++;
+    }
+
 }

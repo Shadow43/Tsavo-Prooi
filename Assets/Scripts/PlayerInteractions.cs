@@ -40,7 +40,7 @@ public class PlayerInteractions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+ 
     }
     private void SubscribeActionToInputEvents()
     {
@@ -53,7 +53,6 @@ public class PlayerInteractions : MonoBehaviour
     public void OnEnable()
     {
         playerControls.FindActionMap(actionMapName).Enable();
-
     }
 
     public void OnDisable()
@@ -62,6 +61,7 @@ public class PlayerInteractions : MonoBehaviour
     }
     private void OnEPressed(InputAction.CallbackContext context)
     {
+        if (!context.performed) return; // only count on initial press
         textnumber++;
     }
     public void SetKillLion(bool value)
@@ -71,5 +71,13 @@ public class PlayerInteractions : MonoBehaviour
     public void SetRepairTrap(bool value)
     {
         repairTrapChosen = value;
+    }
+    public bool killtheLion()
+    {
+        return killLionChosen;
+    }
+    public bool trapRepair()
+    {
+        return repairTrapChosen;
     }
 }
