@@ -1,9 +1,8 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Subsystems;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
+using UnityEngine.Windows;
 
 
 public class SalvageBuildings : MonoBehaviour
@@ -11,12 +10,14 @@ public class SalvageBuildings : MonoBehaviour
     [SerializeField] private PlayerInteractions storyDialogue;
     [SerializeField] private HUD _hud;
 
-    [SerializeField] private bool salvageResources;
+//    [SerializeField] private bool salvageResources;
     [SerializeField] private GameObject salvage;
     [SerializeField] private TMP_Text textforSalvage;
-    [SerializeField] private bool _isTriggered;
-    [SerializeField] private bool buildingSalvaged;
-    
+//    [SerializeField] private bool _isTriggered;
+//    [SerializeField] private bool buildingSalvaged;
+    public bool _isTriggered;
+    public bool buildingSalvaged;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,16 +29,16 @@ public class SalvageBuildings : MonoBehaviour
     {
         if (_isTriggered == true)
         {
-            storyDialogue.OnEnable();
-            if (salvageResources == false)
+            if (buildingSalvaged == false)
             {
+                storyDialogue.OnEnable();
                 examineSalvageBuilding();
             }
-            else
+            if (buildingSalvaged == true)
             {
-                ResroucesGrabbed();
+                ResourcedGrabbed();
             }
-         }
+        }
     }
 
     public void OnTriggerEnter(Collider other)
@@ -45,7 +46,7 @@ public class SalvageBuildings : MonoBehaviour
         if (other.CompareTag("Player"))
         {
 //            storyDialogue.OnEnable();
-            salvage.SetActive(true);
+             salvage.SetActive(true);
             _isTriggered = true;
         }
     }
@@ -70,7 +71,6 @@ public class SalvageBuildings : MonoBehaviour
             string startTextState = "Press E to salvage Ammo";
             textforSalvage.color = Color.red;
             textforSalvage.text = startTextState;
-//            _hud.PickUpCounter();
 //            salvageResources = true;
         }
         if (storyDialogue.trapRepair())
@@ -79,11 +79,10 @@ public class SalvageBuildings : MonoBehaviour
             string startTextState = "Press E to Salvage Wood and Rope";
             textforSalvage.color = Color.red;
             textforSalvage.text = startTextState;
-//            _hud.PickUpCounter();
 //            salvageResources = true;
         }
     }
-    public void ResroucesGrabbed()
+    public void ResourcedGrabbed()
     {
         if (storyDialogue.killtheLion())
         {
@@ -98,4 +97,13 @@ public class SalvageBuildings : MonoBehaviour
             textforSalvage.text = startTextState;
         }
     }
+//    public bool intrigger()
+//    {
+//        return _isTriggered;
+//    }
+//    public bool salvagedbuilding
+//    {
+//        get { return buildingSalvaged; }
+//        set { buildingSalvaged = value; } // You can add logic here if needed
+//    }
 }

@@ -1,13 +1,16 @@
 using System;
 using System.Drawing;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.InputSystem;
 
 public class PlayerInteractions : MonoBehaviour
 {
     [Header("Input Action Asset")]
     [SerializeField] private InputActionAsset playerControls;
-
+    [SerializeField] private HUD characterHUD;
+//    [SerializeField] private SalvageBuildings salvageBuildings;
+    [SerializeField] private SalvageBuildings[] salvageBuildings;
 
     [Header("Action Map Name Reference")]
     [SerializeField] private string actionMapName = "Interactions";
@@ -36,16 +39,17 @@ public class PlayerInteractions : MonoBehaviour
     void Start()
     {
         textnumber = 0;
+        checkbooleans();
     }
-    // Update is called once per frame
-    void Update()
-    {
- 
-    }
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     private void SubscribeActionToInputEvents()
     {
-//        interactionAction.performed += inputInfo => Actions = true;
-//        interactionAction.canceled += inputInfo => Actions = false;
+        //        interactionAction.performed += inputInfo => Actions = true;
+        //        interactionAction.canceled += inputInfo => Actions = false;
         interactionAction.performed += OnEPressed;
         interactionAction.canceled -= OnEPressed;
 
@@ -63,6 +67,18 @@ public class PlayerInteractions : MonoBehaviour
     {
         if (!context.performed) return; // only count on initial press
         textnumber++;
+
+        for (int i = 0; i < salvageBuildings.Length; i++)
+        {
+            SalvageBuildings script = salvageBuildings[i].GetComponent<SalvageBuildings>();
+            bool inthetrigger = script._isTriggered;
+            bool salvagedbuilding = script.buildingSalvaged;
+            if (inthetrigger == true)
+            {
+                characterHUD.counter++;
+               script.buildingSalvaged = true;
+            }
+        }
     }
     public void SetKillLion(bool value)
     {
@@ -80,4 +96,14 @@ public class PlayerInteractions : MonoBehaviour
     {
         return repairTrapChosen;
     }
+    public void checkbooleans()
+    {
+        for (int i = 0; i < salvageBuildings.Length; i++)
+        {
+            SalvageBuildings script = salvageBuildings[i].GetComponent<SalvageBuildings>();
+            bool inthetrigger = script._isTriggered;
+            bool secondBool = script.buildingSalvaged;
+        }
+    }
 }
+

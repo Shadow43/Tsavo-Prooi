@@ -13,7 +13,8 @@ public class HUD : MonoBehaviour
     [SerializeField] private TMP_Text resources;
     [SerializeField] private GameObject woodandRope;
     [SerializeField] bool gameStarted;
-    [SerializeField] int counter;
+    //[SerializeField] int counter;
+    public int counter;
     [SerializeField] private bool ammoCounter;
     [SerializeField] private bool resourceCounter;
 
@@ -50,13 +51,12 @@ public class HUD : MonoBehaviour
             ammo.text = startTextState;
         }
     }
-    public int SalvageCounter()
-    {
-        return counter;
-    }
-    public void PickUpCounter()
-    {
-        counter++;
-    }
-
+    //public int SalvageCounter()
+    //{
+    //    return counter;
+    //}
+    //public void PickUpCounter()
+    //{
+    //    counter++;
+    //}
 }
