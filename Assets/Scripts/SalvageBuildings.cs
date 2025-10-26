@@ -12,7 +12,7 @@ public class SalvageBuildings : MonoBehaviour
 
 //    [SerializeField] private bool salvageResources;
     [SerializeField] private GameObject salvage;
-    [SerializeField] private TMP_Text textforSalvage;
+    [SerializeField] private TMP_Text textForSalvage;
 //    [SerializeField] private bool _isTriggered;
 //    [SerializeField] private bool buildingSalvaged;
     public bool _isTriggered;
@@ -21,7 +21,7 @@ public class SalvageBuildings : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        textforSalvage.text = string.Empty;
+        textForSalvage.text = string.Empty;
     }
 
     // Update is called once per frame
@@ -56,7 +56,7 @@ public class SalvageBuildings : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             storyDialogue.OnDisable();
-            textforSalvage.text = string.Empty;
+            textForSalvage.text = string.Empty;
             salvage.SetActive(false);
             _isTriggered = false;
         }
@@ -69,16 +69,16 @@ public class SalvageBuildings : MonoBehaviour
         {
 //            storyDialogue.OnEnable();
             string startTextState = "Press E to salvage Ammo";
-            textforSalvage.color = Color.red;
-            textforSalvage.text = startTextState;
+            textForSalvage.color = Color.red;
+            textForSalvage.text = startTextState;
 //            salvageResources = true;
         }
         if (storyDialogue.trapRepair())
         {
 //            storyDialogue.OnEnable();
             string startTextState = "Press E to Salvage Wood and Rope";
-            textforSalvage.color = Color.red;
-            textforSalvage.text = startTextState;
+            textForSalvage.color = Color.red;
+            textForSalvage.text = startTextState;
 //            salvageResources = true;
         }
     }
@@ -87,14 +87,14 @@ public class SalvageBuildings : MonoBehaviour
         if (storyDialogue.killtheLion())
         {
             string startTextState = "There's no more ammo here";
-            textforSalvage.color = Color.white;
-            textforSalvage.text = startTextState;
+            textForSalvage.color = Color.white;
+            textForSalvage.text = startTextState;
         }
         if (storyDialogue.trapRepair())
         {
             string startTextState = "There's no more Wood and Rope here.";
-            textforSalvage.color = Color.white;
-            textforSalvage.text = startTextState;
+            textForSalvage.color = Color.white;
+            textForSalvage.text = startTextState;
         }
     }
 //    public bool intrigger()

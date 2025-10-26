@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.InputSystem;
@@ -9,7 +10,8 @@ public class PlayerInteractions : MonoBehaviour
     [Header("Input Action Asset")]
     [SerializeField] private InputActionAsset playerControls;
     [SerializeField] private HUD characterHUD;
-//    [SerializeField] private SalvageBuildings salvageBuildings;
+    [SerializeField] private SalvageBuildings salvageHospital;
+    [SerializeField] private Home_Trap homeTent;
     [SerializeField] private SalvageBuildings[] salvageBuildings;
 
     [Header("Action Map Name Reference")]
@@ -75,8 +77,40 @@ public class PlayerInteractions : MonoBehaviour
             bool salvagedbuilding = script.buildingSalvaged;
             if (inthetrigger == true)
             {
+
+                //if (GameObject.FindGameObjectWithTag("Hospital"))
+                //{
+                //    Debug.Log("Hospital tent has more resources");
+                //    characterHUD.counter++;
+                //    characterHUD.counter++;
+                //}
+                //if (GameObject.FindGameObjectWithTag("Worker Tents"))
+                //{
+                //    Debug.Log("Worker Tents have less resources");
+                //    characterHUD.counter--;
+                //}
+
                 characterHUD.counter++;
-               script.buildingSalvaged = true;
+                script.buildingSalvaged = true;
+            }
+        }
+        if (GameObject.FindWithTag("Hospital"))
+        {
+            if (salvageHospital._isTriggered == true)
+            {
+                if (!context.performed) return; // only count on initial press
+                characterHUD.counter++;
+                characterHUD.counter++;
+                salvageHospital.buildingSalvaged = true;
+            }
+        }
+        if (GameObject.FindWithTag("Home Tent"))
+            {
+            if (homeTent._triggered == true)
+            {
+//                if (!context.performed) return; // only count on initial press
+                homeTent.EquippedGun();
+//            homeTent._buildingSalvaged = true;
             }
         }
     }

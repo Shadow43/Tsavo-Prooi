@@ -21,6 +21,7 @@ public class HUD : MonoBehaviour
 
     void Start()
     {
+        counter = 0;
         ammo.text = string.Empty;
         resources.text = string.Empty;
     }
