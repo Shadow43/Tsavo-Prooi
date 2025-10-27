@@ -52,6 +52,11 @@ public class HUD : MonoBehaviour
             ammo.text = startTextState;
         }
     }
+        public bool startedGame()
+        {
+            return gameStarted;
+        }
+
     //public int SalvageCounter()
     //{
     //    return counter;

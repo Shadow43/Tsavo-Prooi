@@ -97,13 +97,4 @@ public class SalvageBuildings : MonoBehaviour
             textForSalvage.text = startTextState;
         }
     }
-//    public bool intrigger()
-//    {
-//        return _isTriggered;
-//    }
-//    public bool salvagedbuilding
-//    {
-//        get { return buildingSalvaged; }
-//        set { buildingSalvaged = value; } // You can add logic here if needed
-//    }
 }

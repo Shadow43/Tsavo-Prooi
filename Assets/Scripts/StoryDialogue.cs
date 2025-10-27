@@ -58,6 +58,14 @@ public class StoryDialogue : MonoBehaviour
         {
             SeventhTextLine();
         }
+        if (storyDialogue.textnumber == 7)
+        {
+            EigthTextLine();
+        }
+        if (storyDialogue.textnumber == 8)
+        {
+            NinthTextLine();
+        }
     }
     public void StartText()
     {
@@ -110,11 +118,6 @@ public class StoryDialogue : MonoBehaviour
         if (buttonName == "Kill Lion")
         {
             storyDialogue.SetKillLion(true);
-            string startTextState = "</color><color=red>\"I will kill the maneating lion. But I'll need to salvage the ammo from the ruined buildings first\"</color>";
-            dialogueText.text = startTextState;
-            string continueE = "Press E to continue";
-            eToContinue.color = Color.blue;
-            eToContinue.text = continueE;
             repairTrapButton.SetActive(false);
             killLionButton.SetActive(false);
             storyDialogue.OnEnable();
@@ -122,11 +125,6 @@ public class StoryDialogue : MonoBehaviour
         if (buttonName == "Repair Trap")
         {
             storyDialogue.SetRepairTrap(true);
-            string startTextState = "</color><color=red>\"I will trap the lion. But first I will need to repair the trap. The resources should be in the ruined buildings in the area.\"</color>";
-            dialogueText.text = startTextState;
-            string continueE = "Press E to continue";
-            eToContinue.color = Color.blue;
-            eToContinue.text = continueE;
             repairTrapButton.SetActive(false);
             killLionButton.SetActive(false);
             storyDialogue.OnEnable();
@@ -134,13 +132,51 @@ public class StoryDialogue : MonoBehaviour
     }
     public void SixthTextLine()
     {
+           if (storyDialogue.killtheLion())
+        {
+            string startTextState = "</color><color=red>\"I will kill the man-eating lion. But I'll need to salvage the ammo from the ruined buildings first\"</color>";
+            dialogueText.text = startTextState;
+            string continueE = "Press E to continue";
+            eToContinue.color = Color.blue;
+            eToContinue.text = continueE;
+        }
+           if (storyDialogue.trapRepair())
+        {
+            string startTextState = "</color><color=red>\"I will trap the lion. But first I will need to repair the trap. The resources should be in the ruined buildings in the area.\"</color>";
+            dialogueText.text = startTextState;
+            string continueE = "Press E to continue";
+            eToContinue.color = Color.blue;
+            eToContinue.text = continueE;
+        }
+    }
+    public void SeventhTextLine()
+    {
+        if (storyDialogue.killtheLion())
+        {
+            string startTextState = "</color><color=red>\"Then I can come back here and get the shotgun.\"</color>";
+            dialogueText.text = startTextState;
+            string continueE = "Press E to continue";
+            eToContinue.color = Color.blue;
+            eToContinue.text = continueE;
+        }
+        if (storyDialogue.trapRepair())
+        {
+            string startTextState = "</color><color=red>\"Then I can come back here and get the hammer.\"</color>";
+            dialogueText.text = startTextState;
+            string continueE = "Press E to continue";
+            eToContinue.color = Color.blue;
+            eToContinue.text = continueE;
+        }
+    }
+    public void EigthTextLine()
+    {
         dialogueText.alignment = TextAlignmentOptions.Center;
         dialogueText.color = Color.blue;
         string startTextState = "Please Press E to Begin Game";
         dialogueText.text = startTextState;
-    }
 
-    public void SeventhTextLine()
+    }
+    public void NinthTextLine()
     {
         eToContinue.text = string.Empty;
         dialogueText.text = string.Empty;

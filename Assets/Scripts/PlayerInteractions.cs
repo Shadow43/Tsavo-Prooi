@@ -50,11 +50,10 @@ public class PlayerInteractions : MonoBehaviour
         }
     private void SubscribeActionToInputEvents()
     {
-        //        interactionAction.performed += inputInfo => Actions = true;
-        //        interactionAction.canceled += inputInfo => Actions = false;
+//        interactionAction.performed += inputInfo => Actions = true;
+//        interactionAction.canceled += inputInfo => Actions = false;
         interactionAction.performed += OnEPressed;
         interactionAction.canceled -= OnEPressed;
-
     }
     public void OnEnable()
     {
@@ -77,18 +76,6 @@ public class PlayerInteractions : MonoBehaviour
             bool salvagedbuilding = script.buildingSalvaged;
             if (inthetrigger == true)
             {
-
-                //if (GameObject.FindGameObjectWithTag("Hospital"))
-                //{
-                //    Debug.Log("Hospital tent has more resources");
-                //    characterHUD.counter++;
-                //    characterHUD.counter++;
-                //}
-                //if (GameObject.FindGameObjectWithTag("Worker Tents"))
-                //{
-                //    Debug.Log("Worker Tents have less resources");
-                //    characterHUD.counter--;
-                //}
 
                 characterHUD.counter++;
                 script.buildingSalvaged = true;
