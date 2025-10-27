@@ -108,9 +108,9 @@ public class PlayerInteractions : MonoBehaviour
             {
             if (homeTent._triggered == true)
             {
-//                if (!context.performed) return; // only count on initial press
+                if (!context.performed) return; // only count on initial press
                 homeTent.EquippedGun();
-//            homeTent._buildingSalvaged = true;
+                homeTent._buildingSalvaged = true;
             }
         }
     }

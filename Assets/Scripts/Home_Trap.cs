@@ -44,13 +44,13 @@ public class Home_Trap : MonoBehaviour
             }
             if (_buildingSalvaged == true)
             {
-                if(_guntoolEquipped == true)
+                if (_guntoolEquipped == true)
                 {
                     gun_toolGrabbed();
                 }
                 else
                 {
-                    _buildingSalvaged = false;
+                    EquippedGun();
                 }
             }
         }
@@ -72,6 +72,10 @@ public class Home_Trap : MonoBehaviour
             getGun_getTool.text = string.Empty;
             tool_gun.SetActive(false);
             _triggered = false;
+            if (_guntoolEquipped == false)
+            {
+                _buildingSalvaged = false;
+            }
         }
     }
     public void examineBuilding()
@@ -112,36 +116,38 @@ public class Home_Trap : MonoBehaviour
         {
             if (storyDialogue.killtheLion())
             {
-//                string startTextState = "Need to get salvage the ammo first";
-//                getGun_getTool.color = Color.white;
-//                getGun_getTool.text = startTextState;
-                Debug.Log("Need to get salvage the ammo first");
+//                Debug.Log("Need to get salvage the ammo first");
+                string startTextState = "Need to get salvage the ammo first";
+                getGun_getTool.color = Color.white;
+                getGun_getTool.text = startTextState;
             }
             if (storyDialogue.trapRepair())
             {
-//                string startTextState = "Need to get salvage the resources first";
-//                getGun_getTool.color = Color.white;
-//                getGun_getTool.text = startTextState;
-                Debug.Log("Need to get salvage the resources first");
+//                Debug.Log("Need to get salvage the resources first");
+                string startTextState = "Need to get salvage the resources first";
+                getGun_getTool.color = Color.white;
+                getGun_getTool.text = startTextState;
             }
         }
         else if (_hud.counter >= 8)
         {
             if (storyDialogue.killtheLion())
             {
-//                string startTextState = "Got all the availabe ammo.";
-//                getGun_getTool.color = Color.white;
-//                getGun_getTool.text = startTextState;
-                Debug.Log("Got all the ammo.");
-//                _guntoolEquipped = true;
+//                Debug.Log("Got all the ammo.");
+                string startTextState = "Got all the availabe ammo.";
+                getGun_getTool.color = Color.white;
+                getGun_getTool.text = startTextState;
+                equpped_Gun.SetActive(true);
+                _guntoolEquipped = true;
             }
             if (storyDialogue.trapRepair())
             {
-//                string startTextState = "Got all the availabe resources";
-//                getGun_getTool.color = Color.white;
-//                getGun_getTool.text = startTextState;
-                Debug.Log("Got all the resources.");
-//                _guntoolEquipped = true;
+//                Debug.Log("Got all the resources.");
+                string startTextState = "Got all the availabe resources";
+                getGun_getTool.color = Color.white;
+                getGun_getTool.text = startTextState;
+                equpped_tool.SetActive(true);
+                _guntoolEquipped = true;
             }
         }
     }
