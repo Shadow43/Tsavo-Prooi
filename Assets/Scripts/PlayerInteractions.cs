@@ -11,6 +11,7 @@ public class PlayerInteractions : MonoBehaviour
     [SerializeField] private InputActionAsset playerControls;
     [SerializeField] private HUD characterHUD;
     [SerializeField] private SalvageBuildings salvageHospital;
+    [SerializeField] private SalvageBuildings salvageTrap;
     [SerializeField] private Home_Trap homeTent;
     [SerializeField] private SalvageBuildings[] salvageBuildings;
 
@@ -76,7 +77,7 @@ public class PlayerInteractions : MonoBehaviour
             bool salvagedbuilding = script.buildingSalvaged;
             if (inthetrigger == true)
             {
-
+                if (!context.performed) return; // only count on initial press
                 characterHUD.counter++;
                 script.buildingSalvaged = true;
             }
@@ -98,6 +99,26 @@ public class PlayerInteractions : MonoBehaviour
                 if (!context.performed) return; // only count on initial press
                 homeTent.EquippedGun();
                 homeTent._buildingSalvaged = true;
+            }
+        }
+        if (GameObject.FindWithTag("Lion Trap"))
+        {
+            if (!context.performed) return; // only count on initial press
+            if (salvageTrap._isTriggered == true)
+            {
+                if (killtheLion())
+                {
+                    characterHUD.counter++;
+                    characterHUD.counter++;
+                    characterHUD.counter++;
+                    characterHUD.counter++;
+                    salvageTrap.buildingSalvaged = true;
+                }
+                if (trapRepair())
+                {
+
+                }
+
             }
         }
     }

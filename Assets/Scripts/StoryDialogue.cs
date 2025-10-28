@@ -16,6 +16,7 @@ public class StoryDialogue : MonoBehaviour
     [SerializeField] GameObject repairTrapButton;
     [SerializeField] GameObject killLionButton;
     [SerializeField] private AILionPatrol lionPatrol;
+    [SerializeField] private bool startedGame;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -185,11 +186,16 @@ public class StoryDialogue : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         storyDialogue.OnDisable();
+        startedGame = true;
 //        lionPatrol.setPaused(false);
     }
     public void OnMouseUpAsButton()
     {
         storyDialogue.textnumber++;
+    }
+    public bool gameStart()
+    {
+        return startedGame;
     }
 
 }

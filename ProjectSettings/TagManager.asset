@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Hospital
   - Home Tent
+  - Lion Trap
+  - The Ground
+  - The Target
+  - The Lion
+  - Lion
+  - Hud
   layers:
   - Default
   - TransparentFX

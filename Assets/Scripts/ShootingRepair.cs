@@ -1,19 +1,23 @@
+using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Searcher.SearcherWindow;
 
 
 public class ShootingRepair : MonoBehaviour
 {
     [SerializeField] private InputActionAsset playerControls;
-    [SerializeField] private HUD characterHUD;
+    [SerializeField] private StoryDialogue characterDialogue;
     [SerializeField] private Home_Trap hometrap;
     [SerializeField] private PlayerInteractions storyDialogue;
+    [SerializeField] private HUD characterHud;
+
     [SerializeField] private TMP_Text gun;
     [SerializeField] private GameObject equippedShotGun;
 
-    [SerializeField] GameObject bulletSpawn;
+    [SerializeField] Transform bulletSpawn;
     [SerializeField] GameObject bullet;
 
     [SerializeField] private string actionMapName = "Weapon";
@@ -36,16 +40,17 @@ public class ShootingRepair : MonoBehaviour
         interactionAction.performed += OnMouseClick;
         interactionAction.canceled -= OnMouseClick;
     }
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
         OnDisable();
+        gun.text = string.Empty;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (characterHUD.startedGame() && startGame == false)
+        if (characterDialogue.gameStart() && startGame == false)
         {
             OnEnable();
             startGame = true;
@@ -65,19 +70,33 @@ public class ShootingRepair : MonoBehaviour
         if (!context.performed) return; // only count on initial press
         if (equippedShotGun.activeInHierarchy)
         {
-            Debug.Log("Gun is equipped. Ready to shoot");
-            Onfire();
+            if (characterHud.counter != 0)
+            {
+                Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
+                characterHud.counter -= 1;
+            }
+            //            Debug.Log("Gun is equipped. Ready to shoot");
         }
         else
         {
             if (storyDialogue.killtheLion())
             {
-                Debug.Log("Don't have the gun");
+//                Debug.Log("Don't have the gun");
+                gun.alignment = TextAlignmentOptions.Center;
+                string startTextState = "No gun equipped";
+                gun.color = Color.red;
+                gun.text = startTextState;
+                TextTimer();
             }
         }
     }
-    public void Onfire()
+    public void TextTimer()
     {
-        Debug.Log("Spawn bullet");
+        StartCoroutine(TextTimerCoroutine());
+    }
+    IEnumerator TextTimerCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+        gun.text = string.Empty;
     }
 }
