@@ -1,12 +1,10 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Searcher.SearcherWindow;
 
 
-public class ShootingRepair : MonoBehaviour
+public class Shooting : MonoBehaviour
 {
     [SerializeField] private InputActionAsset playerControls;
     [SerializeField] private StoryDialogue characterDialogue;
@@ -23,6 +21,7 @@ public class ShootingRepair : MonoBehaviour
     [SerializeField] private string actionMapName = "Weapon";
 
     [SerializeField] private string action = "Shoot";
+
     private bool startGame;
 
     private InputAction interactionAction;
@@ -75,7 +74,7 @@ public class ShootingRepair : MonoBehaviour
                 Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
                 characterHud.counter -= 1;
             }
-            //            Debug.Log("Gun is equipped. Ready to shoot");
+//            Debug.Log("Gun is equipped. Ready to shoot");
         }
         else
         {

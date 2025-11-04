@@ -1,9 +1,6 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class StoryDialogue : MonoBehaviour
 {
@@ -66,6 +63,10 @@ public class StoryDialogue : MonoBehaviour
         if (storyDialogue.textnumber == 8)
         {
             NinthTextLine();
+        }
+        if (storyDialogue.textnumber == 9)
+        {
+            TenthTextLine();
         }
     }
     public void StartText()
@@ -171,13 +172,31 @@ public class StoryDialogue : MonoBehaviour
     }
     public void EigthTextLine()
     {
+        if (storyDialogue.killtheLion())
+        {
+            string startTextState = "</color><color=red>\"Left mouse click fires the shotgun.\"</color>";
+            dialogueText.text = startTextState;
+            string continueE = "Press E to continue";
+            eToContinue.color = Color.blue;
+            eToContinue.text = continueE;
+        }
+        if (storyDialogue.trapRepair())
+        {
+            string startTextState = "</color><color=red>\"Left Mouse click uses the hammer.\"</color>";
+            dialogueText.text = startTextState;
+            string continueE = "Press E to continue";
+            eToContinue.color = Color.blue;
+            eToContinue.text = continueE;
+        }
+    }
+    public void NinthTextLine()
+    {
         dialogueText.alignment = TextAlignmentOptions.Center;
         dialogueText.color = Color.blue;
         string startTextState = "Please Press E to Begin Game";
         dialogueText.text = startTextState;
-
     }
-    public void NinthTextLine()
+    public void TenthTextLine()
     {
         eToContinue.text = string.Empty;
         dialogueText.text = string.Empty;
@@ -187,7 +206,7 @@ public class StoryDialogue : MonoBehaviour
         Cursor.visible = false;
         storyDialogue.OnDisable();
         startedGame = true;
-//        lionPatrol.setPaused(false);
+        lionPatrol.setPaused(false);
     }
     public void OnMouseUpAsButton()
     {

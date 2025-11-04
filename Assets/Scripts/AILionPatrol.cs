@@ -1,8 +1,3 @@
-using JetBrains.Annotations;
-using System.Collections.Generic;
-using System.Drawing;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -23,6 +18,7 @@ public class AILionPatrol : MonoBehaviour
     [SerializeField] private int numberOfRays;
     [SerializeField] private Transform raycastStart;
     [SerializeField] private Dialogue debugDialogue;
+    [SerializeField] LionHP lionHealthPoints;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -111,50 +107,49 @@ bool RandomPoint(Vector3 center, float range, out Vector3 result)
 
     public void checkDistance()
     {
-        float dist = Vector3.Distance(transform.position, targetObject.transform.position);
-//        Debug.Log($"Distance to player is: {dist}");
-        if (dist >= 0.01f && dist <= 5.0f)
+        if (lionHealthPoints.lionHealth != 0)
         {
-            agent.speed = 3f;
+            float dist = Vector3.Distance(transform.position, targetObject.transform.position);
+//        Debug.Log($"Distance to player is: {dist}");
+            if (dist >= 0.01f && dist <= 5.0f)
+            {
+                agent.speed = 3f;
 //            Debug.Log("Lion caught player");
 //            debugDialogue.text.text = "The Lion has caught and is about to devour the player";
-            debugDialogue.LionCaughtPlayer();
-            isPaused = true;
-            playercontrol.OnDisable();
-            
-        }
-        if (dist >= 5.01f && dist <= 10.0f)
-        {
+                debugDialogue.LionCaughtPlayer();
+                isPaused = true;
+                playercontrol.OnDisable();
+            }
+            if (dist >= 5.01f && dist <= 10.0f)
+            {
 //            Debug.Log("Lion is activly stalking the player");
-            debugDialogue.LionDetectedPlayer();
-            agent.speed = 5f;
-        }
-        if (dist >= 11.01f && dist <= 19.0f)
-        {
+                debugDialogue.LionDetectedPlayer();
+                agent.speed = 5f;
+            }
+            if (dist >= 11.01f && dist <= 19.0f)
+            {
 //            Debug.Log("Lion is chasing the player");
-            agent.speed = 7f;
-            debugDialogue.LionChasingPlayer();
-        }
-        if (dist >= 19.01f && dist <= 19.99f)
-        {
-            debugDialogue.LionLoosingPlayer();
+                agent.speed = 7f;
+                debugDialogue.LionChasingPlayer();
+            }
+            if (dist >= 19.01f && dist <= 19.99f)
+            {
+                debugDialogue.LionLoosingPlayer();
 //            Debug.Log("Lion is loosing the player");
-            agent.speed = 3f;
-        }
-        if (dist >= 20f)
-        {
-            debugDialogue.LionLostPlayer();
-            agent.speed = 3f;
+                agent.speed = 3f;
+            }
+            if (dist >= 20f)
+            {
+                debugDialogue.LionLostPlayer();
+                agent.speed = 3f;
 //            Debug.Log("Lion has lost the player");
+            }
+//        if (stalkingRange == false)
+//        {
+//            debugDialogue.LionDetectedPlayer();
+//            stalkingRange = true;
+//        }
         }
-
-
-        //        if (stalkingRange == false)
-        //        {
-        //            debugDialogue.LionDetectedPlayer();
-        //            stalkingRange = true;
-        //        }
-
     }
     public void setPaused(bool value)
     {

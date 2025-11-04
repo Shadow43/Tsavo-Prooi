@@ -1,8 +1,5 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Windows;
 
 
 public class SalvageBuildings : MonoBehaviour

@@ -1,8 +1,4 @@
-using System;
-using System.Drawing;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 using UnityEngine.InputSystem;
 
 public class PlayerInteractions : MonoBehaviour
@@ -114,11 +110,10 @@ public class PlayerInteractions : MonoBehaviour
                     characterHUD.counter++;
                     salvageTrap.buildingSalvaged = true;
                 }
-                if (trapRepair())
-                {
+//                if (trapRepair())
+//                {
 
-                }
-
+//                }
             }
         }
     }

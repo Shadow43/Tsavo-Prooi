@@ -56,4 +56,17 @@ public class Dialogue : MonoBehaviour
         text.text = string.Empty;
     }
 
+    public void LionTrapped()
+    {
+//        Debug.Log("The function for the lion loosing the player for text on screen!");
+        string lionState = "The Lion is safely trapped in the Lion Trap.";
+        text.text = lionState;
+    }
+    public void LionKilled()
+    {
+//        Debug.Log("The function for the lion loosing the player for text on screen!");
+        string lionState = "The Lion is dead. You have killed him.";
+        text.text = lionState;
+    }
+
 }
