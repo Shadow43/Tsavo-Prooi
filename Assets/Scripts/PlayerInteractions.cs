@@ -63,7 +63,11 @@ public class PlayerInteractions : MonoBehaviour
     }
     private void OnEPressed(InputAction.CallbackContext context)
     {
-        if (!context.performed) return; // only count on initial press
+        if (!context.performed)
+        {
+           // Debug.LogWarning("FIRST RETURNED");
+            return; // only count on initial press
+        }
         textnumber++;
 
         for (int i = 0; i < salvageBuildings.Length; i++)
@@ -73,14 +77,26 @@ public class PlayerInteractions : MonoBehaviour
             bool salvagedbuilding = script.buildingSalvaged;
             if (inthetrigger == true)
             {
-                if (!context.performed) return; // only count on initial press
-                characterHUD.counter++;
+                if (salvagedbuilding)
+                {
+                    Debug.LogWarning("building has been salvaged");
+                    return;
+                }
+
+
+
+                    if (!context.performed)
+                {
+                    Debug.LogWarning("FIRST RETURNED"); 
+                    return; // only count on initial press
+                }
+                    characterHUD.counter++;
                 script.buildingSalvaged = true;
             }
         }
         if (GameObject.FindWithTag("Hospital"))
         {
-            if (salvageHospital._isTriggered == true)
+            if (salvageHospital._isTriggered == true && !salvageHospital.buildingSalvaged)
             {
                 if (!context.performed) return; // only count on initial press
                 characterHUD.counter++;
@@ -104,12 +120,14 @@ public class PlayerInteractions : MonoBehaviour
             {
                 if (killtheLion())
                 {
-                    characterHUD.counter++;
-                    characterHUD.counter++;
-                    characterHUD.counter++;
-                    characterHUD.counter++;
-                    salvageTrap.buildingSalvaged = true;
+                    if (!salvageTrap.buildingSalvaged)
+                    {
+                        characterHUD.counter += 4;
+
+                        salvageTrap.buildingSalvaged = true;
+                    }
                 }
+
 //                if (trapRepair())
 //                {
 

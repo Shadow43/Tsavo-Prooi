@@ -86,12 +86,14 @@ public class SalvageBuildings : MonoBehaviour
             string startTextState = "There's no more ammo here";
             textForSalvage.color = Color.white;
             textForSalvage.text = startTextState;
+            //Debug.Log("GETTIIN AMMO");
         }
         if (storyDialogue.trapRepair())
         {
             string startTextState = "There's no more Wood and Rope here.";
             textForSalvage.color = Color.white;
             textForSalvage.text = startTextState;
+            //Debug.Log("GETTIIN wOOD");
         }
     }
 }
