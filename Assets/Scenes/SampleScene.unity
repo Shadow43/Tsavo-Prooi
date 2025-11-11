@@ -4103,7 +4103,7 @@ MonoBehaviour:
   playerControls: {fileID: -944628639613478452, guid: b80bede6f1704bb49b2a5b203b870a64, type: 3}
   characterHUD: {fileID: 99638641}
   salvageHospital: {fileID: 639640594}
-  salvageTrap: {fileID: 1577808461}
+  salvageTrap: {fileID: 0}
   homeTent: {fileID: 1971273651}
   salvageBuildings:
   - {fileID: 361869009}
@@ -6414,7 +6414,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1577808459}
   - component: {fileID: 1577808460}
-  - component: {fileID: 1577808461}
   m_Layer: 6
   m_Name: TextRadiusTriggerH
   m_TagString: Lion Trap
@@ -6458,24 +6457,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1577808461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1577808458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eae61f6ea5ec1bf4fa2466a8362bbaf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  storyDialogue: {fileID: 834807179}
-  _hud: {fileID: 99638641}
-  salvage: {fileID: 141883728}
-  textForSalvage: {fileID: 141883730}
-  _isTriggered: 0
-  buildingSalvaged: 0
 --- !u!1 &1590896108
 GameObject:
   m_ObjectHideFlags: 0
