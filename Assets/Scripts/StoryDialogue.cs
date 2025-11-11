@@ -206,7 +206,7 @@ public class StoryDialogue : MonoBehaviour
         Cursor.visible = false;
         storyDialogue.OnDisable();
         startedGame = true;
-        lionPatrol.setPaused(false);
+//        lionPatrol.setPaused(false);
     }
     public void OnMouseUpAsButton()
     {

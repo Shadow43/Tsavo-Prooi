@@ -47,7 +47,6 @@ public class SalvageBuildings : MonoBehaviour
             _isTriggered = true;
         }
     }
-
     public void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -72,28 +71,11 @@ public class SalvageBuildings : MonoBehaviour
         }
         if (storyDialogue.trapRepair())
         {
-            if (GameObject.FindWithTag("Lion Trap"))
-            {
-                string startTextState = "Press mouse button to repair trap";
-                textForSalvage.color = Color.red;
-                textForSalvage.text = startTextState;
-            }
-            if (GameObject.FindWithTag("Worker Tent"))
-            {
 //            storyDialogue.OnEnable();
                 string startTextState = "Press E to Salvage Wood and Rope";
                 textForSalvage.color = Color.red;
                 textForSalvage.text = startTextState;
 //            salvageResources = true;
-            }
-            if (GameObject.FindWithTag("Hospital"))
-            {
-//            storyDialogue.OnEnable();
-                string startTextState = "Press E to Salvage Wood and Rope";
-                textForSalvage.color = Color.red;
-                textForSalvage.text = startTextState;
-//            salvageResources = true;
-            }
         }
     }
     public void ResourcedGrabbed()
