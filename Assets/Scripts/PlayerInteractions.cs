@@ -73,7 +73,16 @@ public class PlayerInteractions : MonoBehaviour
             bool salvagedbuilding = script.buildingSalvaged;
             if (inthetrigger == true)
             {
+
                 if (!context.performed) return; // only count on initial press
+                if (salvagedbuilding)
+                {
+                    return;
+                }
+                if (!context.performed)
+                {
+                    return; // only count on initial press
+                }
                 characterHUD.counter++;
                 script.buildingSalvaged = true;
             }
@@ -83,8 +92,7 @@ public class PlayerInteractions : MonoBehaviour
             if (salvageHospital._isTriggered == true)
             {
                 if (!context.performed) return; // only count on initial press
-                characterHUD.counter++;
-                characterHUD.counter++;
+                characterHUD.counter += 2;
                 salvageHospital.buildingSalvaged = true;
             }
         }
@@ -104,11 +112,11 @@ public class PlayerInteractions : MonoBehaviour
             {
                 if (killtheLion())
                 {
-                    characterHUD.counter++;
-                    characterHUD.counter++;
-                    characterHUD.counter++;
-                    characterHUD.counter++;
-                    salvageTrap.buildingSalvaged = true;
+                    if (!salvageTrap.buildingSalvaged)
+                    {
+                        characterHUD.counter += 4;
+                        salvageTrap.buildingSalvaged = true;
+                    }
                 }
 //                if (trapRepair())
 //                {

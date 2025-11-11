@@ -72,11 +72,28 @@ public class SalvageBuildings : MonoBehaviour
         }
         if (storyDialogue.trapRepair())
         {
+            if (GameObject.FindWithTag("Lion Trap"))
+            {
+                string startTextState = "Press mouse button to repair trap";
+                textForSalvage.color = Color.red;
+                textForSalvage.text = startTextState;
+            }
+            if (GameObject.FindWithTag("Worker Tent"))
+            {
 //            storyDialogue.OnEnable();
-            string startTextState = "Press E to Salvage Wood and Rope";
-            textForSalvage.color = Color.red;
-            textForSalvage.text = startTextState;
+                string startTextState = "Press E to Salvage Wood and Rope";
+                textForSalvage.color = Color.red;
+                textForSalvage.text = startTextState;
 //            salvageResources = true;
+            }
+            if (GameObject.FindWithTag("Hospital"))
+            {
+//            storyDialogue.OnEnable();
+                string startTextState = "Press E to Salvage Wood and Rope";
+                textForSalvage.color = Color.red;
+                textForSalvage.text = startTextState;
+//            salvageResources = true;
+            }
         }
     }
     public void ResourcedGrabbed()
@@ -86,12 +103,14 @@ public class SalvageBuildings : MonoBehaviour
             string startTextState = "There's no more ammo here";
             textForSalvage.color = Color.white;
             textForSalvage.text = startTextState;
+            //Debug.Log("GETTIIN AMMO");
         }
         if (storyDialogue.trapRepair())
         {
             string startTextState = "There's no more Wood and Rope here.";
             textForSalvage.color = Color.white;
             textForSalvage.text = startTextState;
+            //Debug.Log("GETTIIN wOOD");
         }
     }
 }

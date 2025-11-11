@@ -1745,7 +1745,7 @@ GameObject:
   - component: {fileID: 305388100}
   m_Layer: 6
   m_Name: TextRadiusTriggerE
-  m_TagString: Untagged
+  m_TagString: Worker Tent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2033,7 +2033,7 @@ GameObject:
   - component: {fileID: 361869009}
   m_Layer: 6
   m_Name: TextRadiusTriggerA
-  m_TagString: Untagged
+  m_TagString: Worker Tent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3780,7 +3780,7 @@ GameObject:
   - component: {fileID: 746086911}
   m_Layer: 6
   m_Name: TextRadiusTriggerD
-  m_TagString: Untagged
+  m_TagString: Worker Tent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4234,7 +4234,7 @@ GameObject:
   - component: {fileID: 866591834}
   m_Layer: 6
   m_Name: TextRadiusTriggerC
-  m_TagString: Untagged
+  m_TagString: Worker Tent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4473,7 +4473,7 @@ GameObject:
   - component: {fileID: 976327301}
   m_Layer: 6
   m_Name: TextRadiusTriggerB
-  m_TagString: Untagged
+  m_TagString: Worker Tent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7776,7 +7776,7 @@ GameObject:
   - component: {fileID: 1876747294}
   m_Layer: 6
   m_Name: TextRadiusTriggerF
-  m_TagString: Untagged
+  m_TagString: Worker Tent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
