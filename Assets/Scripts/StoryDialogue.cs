@@ -78,7 +78,7 @@ public class StoryDialogue : MonoBehaviour
     public void FirstTextLine()
     {
         dialogueText.alignment = TextAlignmentOptions.Left;
-        string startTextState = "<color=black>You are suddenly startled awake at the sound of a lion growling then roaring extremely close.</color>";
+        string startTextState = "<color=white>You are suddenly startled awake at the sound of a lion growling then roaring extremely close.</color>";
         dialogueText.text = startTextState;
         eToContinue.color = Color.blue;
         string continueE = "Press E to continue";
@@ -88,17 +88,17 @@ public class StoryDialogue : MonoBehaviour
     }
     public void SecondTextLine()
     {
-        string startTextState = "<color=red>\"That blasted lion.\"</color><color=black> You mutter to yourself. </color><color=red>\"The two have killed or driven off all the workers that were to help build the village.\"</color>";
+        string startTextState = "<color=red>\"That blasted lion.\"</color><color=white> You mutter to yourself. </color><color=red>\"The two have killed or driven off all the workers that were to help build the village.\"</color>";
         dialogueText.text = startTextState;
     }
     public void ThirdTextLine()
     {
-        string startTextState = "<color=black>You stretch and start to sit up. </color><color=red>\"I'm glad I was able to get rid of that first lion though. Nearly got me though.\"</color>";
+        string startTextState = "<color=white>You stretch and start to sit up. </color><color=red>\"I'm glad I was able to get rid of that first lion though. Nearly got me though.\"</color>";
         dialogueText.text = startTextState;
     }
     public void ForthdTextLine()
     {
-        string startTextState = "<color=black>You start to get changed. </color><color=red>\"I'm going to have to either trap or kill this last lion like I did the first lion.\"</color>";
+        string startTextState = "<color=white>You start to get changed. </color><color=red>\"I'm going to have to either trap or kill this last lion like I did the first lion.\"</color>";
         dialogueText.text = startTextState;
     }
     public void FifthTextLine()

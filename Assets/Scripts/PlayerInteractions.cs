@@ -7,7 +7,7 @@ public class PlayerInteractions : MonoBehaviour
     [SerializeField] private InputActionAsset playerControls;
     [SerializeField] private HUD characterHUD;
     [SerializeField] private SalvageBuildings salvageHospital;
-    [SerializeField] private SalvageBuildings salvageTrap;
+    [SerializeField] private TrapRepair salvageTrap;
     [SerializeField] private Home_Trap homeTent;
     [SerializeField] private SalvageBuildings[] salvageBuildings;
 
