@@ -94,5 +94,6 @@ AssetOrigin:
   productId: 170036
   packageName: Environmental Asset Pack
   packageVersion: 1.0
-  assetPath: Assets/JP Environmental Asset Pack/Textures/Foliage 2/Foliage 2.png
+  assetPath: Assets/StoreAssets/JP Environmental Asset Pack/Textures/Foliage 2/Foliage
+    2.png
   uploadId: 371416

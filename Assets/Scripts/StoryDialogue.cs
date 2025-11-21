@@ -71,14 +71,15 @@ public class StoryDialogue : MonoBehaviour
     }
     public void StartText()
     {
+        dialogueText.color = Color.cyan;
         dialogueText.alignment = TextAlignmentOptions.Center;
-        string startTextState = "Please Press E to Start Story Narration";
+        string startTextState = "Please Press E to Start Story Dialogue";
         dialogueText.text = startTextState;
     }
     public void FirstTextLine()
     {
         dialogueText.alignment = TextAlignmentOptions.Left;
-        string startTextState = "<color=white>You are suddenly startled awake at the sound of a lion growling then roaring extremely close.</color>";
+        string startTextState = "<color=#d3cbcb>You are suddenly startled awake at the sound of a lion growling then roaring extremely close.</color>";
         dialogueText.text = startTextState;
         eToContinue.color = Color.blue;
         string continueE = "Press E to continue";
@@ -88,22 +89,22 @@ public class StoryDialogue : MonoBehaviour
     }
     public void SecondTextLine()
     {
-        string startTextState = "<color=red>\"That blasted lion.\"</color><color=white> You mutter to yourself. </color><color=red>\"The two have killed or driven off all the workers that were to help build the village.\"</color>";
+        string startTextState = "<color=#e02046>\"That blasted lion.\"</color><color=#d3cbcb> You mutter to yourself. </color><color=#e02046>\"The two have killed or driven off all the workers that were to help build the village.\"</color>";
         dialogueText.text = startTextState;
     }
     public void ThirdTextLine()
     {
-        string startTextState = "<color=white>You stretch and start to sit up. </color><color=red>\"I'm glad I was able to get rid of that first lion though. Nearly got me though.\"</color>";
+        string startTextState = "<color=#d3cbcb>You stretch and start to sit up. </color><color=#e02046>\"I'm glad I was able to get rid of that first lion though. Nearly got me though.\"</color>";
         dialogueText.text = startTextState;
     }
     public void ForthdTextLine()
     {
-        string startTextState = "<color=white>You start to get changed. </color><color=red>\"I'm going to have to either trap or kill this last lion like I did the first lion.\"</color>";
+        string startTextState = "<color=#d3cbcb>You start to get changed. </color><color=#e02046>\"I'm going to have to either trap or kill this last lion like I did the first lion.\"</color>";
         dialogueText.text = startTextState;
     }
     public void FifthTextLine()
     {
-        string startTextState = "</color><color=red>\"Which should I do? Kill the lion or try to repair the trap to trap the maneater.\"</color>";
+        string startTextState = "<color=#e02046>\"Which should I do? Kill the lion or try to repair the trap to trap the maneater.\"</color>";
         dialogueText.text = startTextState;
         repairTrapButton.SetActive(true);
         killLionButton.SetActive(true);
@@ -136,7 +137,7 @@ public class StoryDialogue : MonoBehaviour
     {
            if (storyDialogue.killtheLion())
         {
-            string startTextState = "</color><color=red>\"I will kill the man-eating lion. But I'll need to salvage the ammo from the ruined buildings first\"</color>";
+            string startTextState = "<color=#e02046>\"I will kill the man-eating lion. But I'll need to salvage the ammo from the ruined buildings first\"</color>";
             dialogueText.text = startTextState;
             string continueE = "Press E to continue";
             eToContinue.color = Color.blue;
@@ -144,7 +145,7 @@ public class StoryDialogue : MonoBehaviour
         }
            if (storyDialogue.trapRepair())
         {
-            string startTextState = "</color><color=red>\"I will trap the lion. But first I will need to repair the trap. The resources should be in the ruined buildings in the area.\"</color>";
+            string startTextState = "<color=#e02046>\"I will trap the lion. But first I will need to repair the trap. The resources should be in the ruined buildings in the area.\"</color>";
             dialogueText.text = startTextState;
             string continueE = "Press E to continue";
             eToContinue.color = Color.blue;
@@ -155,7 +156,7 @@ public class StoryDialogue : MonoBehaviour
     {
         if (storyDialogue.killtheLion())
         {
-            string startTextState = "</color><color=red>\"Then I can come back here and get the shotgun.\"</color>";
+            string startTextState = "<color=#e02046>\"Then I can come back here and get the shotgun.\"</color>";
             dialogueText.text = startTextState;
             string continueE = "Press E to continue";
             eToContinue.color = Color.blue;
@@ -163,7 +164,7 @@ public class StoryDialogue : MonoBehaviour
         }
         if (storyDialogue.trapRepair())
         {
-            string startTextState = "</color><color=red>\"Then I can come back here and get the hammer.\"</color>";
+            string startTextState = "<color=#e02046>\"Then I can come back here and get the hammer.\"</color>";
             dialogueText.text = startTextState;
             string continueE = "Press E to continue";
             eToContinue.color = Color.blue;
@@ -174,7 +175,7 @@ public class StoryDialogue : MonoBehaviour
     {
         if (storyDialogue.killtheLion())
         {
-            string startTextState = "</color><color=red>\"Left mouse click fires the shotgun.\"</color>";
+            string startTextState = "<color=#e02046>\"Left mouse click fires the shotgun.\"</color>";
             dialogueText.text = startTextState;
             string continueE = "Press E to continue";
             eToContinue.color = Color.blue;
@@ -182,7 +183,7 @@ public class StoryDialogue : MonoBehaviour
         }
         if (storyDialogue.trapRepair())
         {
-            string startTextState = "</color><color=red>\"Left Mouse click uses the hammer.\"</color>";
+            string startTextState = "<color=#e02046>\"Left Mouse click uses the hammer.\"</color>";
             dialogueText.text = startTextState;
             string continueE = "Press E to continue";
             eToContinue.color = Color.blue;
@@ -192,7 +193,7 @@ public class StoryDialogue : MonoBehaviour
     public void NinthTextLine()
     {
         dialogueText.alignment = TextAlignmentOptions.Center;
-        dialogueText.color = Color.blue;
+        dialogueText.color = Color.cyan;
         string startTextState = "Please Press E to Begin Game";
         dialogueText.text = startTextState;
     }
