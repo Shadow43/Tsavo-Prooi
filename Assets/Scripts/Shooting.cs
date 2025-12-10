@@ -8,7 +8,7 @@ public class Shooting : MonoBehaviour
 {
     [SerializeField] private InputActionAsset playerControls;
     [SerializeField] private StoryDialogue characterDialogue;
-    [SerializeField] private Home_Trap hometrap;
+    [SerializeField] private Home_Tent hometrap;
     [SerializeField] private PlayerInteractions storyDialogue;
     [SerializeField] private HUD characterHud;
 

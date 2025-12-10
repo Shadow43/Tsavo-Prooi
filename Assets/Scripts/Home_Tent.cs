@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class Home_Trap : MonoBehaviour
+public class Home_Tent : MonoBehaviour
 {
     [SerializeField] private PlayerInteractions storyDialogue;
     [SerializeField] private HUD _hud;
@@ -10,6 +10,10 @@ public class Home_Trap : MonoBehaviour
     [SerializeField] private TMP_Text getGun_getTool;
     [SerializeField] private GameObject equpped_Gun;
     [SerializeField] private GameObject equpped_tool;
+    [SerializeField] private int MinResources;
+    [SerializeField] private int MaxResources;
+    [SerializeField] private int MinAmmo;
+    [SerializeField] private int MaxAmmo;
 
     public bool _triggered;
     public bool _buildingSalvaged;
@@ -108,45 +112,87 @@ public class Home_Trap : MonoBehaviour
 //            Debug.Log("text for already getting the tool");
         }
     }    
-    public void EquippedGun()
+public void EquippedGun()
     {
-        if (_hud.counter <= 7)
+        if (storyDialogue.killtheLion())
         {
-            if (storyDialogue.killtheLion())
+            if (_hud.counter <= MinAmmo)
             {
-//                Debug.Log("Need to get salvage the ammo first");
                 string startTextState = "Need to get salvage the ammo first";
                 getGun_getTool.color = Color.white;
                 getGun_getTool.text = startTextState;
+
             }
-            if (storyDialogue.trapRepair())
+            else if(_hud.counter >= MaxAmmo)
             {
-//                Debug.Log("Need to get salvage the resources first");
-                string startTextState = "Need to get salvage the resources first";
-                getGun_getTool.color = Color.white;
-                getGun_getTool.text = startTextState;
-            }
-        }
-        else if (_hud.counter >= 8)
-        {
-            if (storyDialogue.killtheLion())
-            {
-//                Debug.Log("Got all the ammo.");
                 string startTextState = "Got all the availabe ammo.";
                 getGun_getTool.color = Color.white;
                 getGun_getTool.text = startTextState;
                 equpped_Gun.SetActive(true);
                 _guntoolEquipped = true;
+
             }
-            if (storyDialogue.trapRepair())
+        }
+
+        if (storyDialogue.trapRepair())
+        { if (_hud.counter <= MinResources)
             {
-//                Debug.Log("Got all the resources.");
+                string startTextState = "Need to get salvage the resources first";
+                getGun_getTool.color = Color.white;
+                getGun_getTool.text = startTextState;
+
+            }
+            else if (_hud.counter >= MaxResources)
+            {
                 string startTextState = "Got all the availabe resources";
                 getGun_getTool.color = Color.white;
                 getGun_getTool.text = startTextState;
                 equpped_tool.SetActive(true);
                 _guntoolEquipped = true;
+
             }
         }
-    }
+    }    
+
+//    public void EquippedGun2()
+//    {
+//        if (_hud.counter <= MinAmmoOrResources)
+//        {
+//            if (storyDialogue.killtheLion())
+//            {
+//                Debug.Log("Need to get salvage the ammo first");
+//                string startTextState = "Need to get salvage the ammo first";
+//                getGun_getTool.color = Color.white;
+//                getGun_getTool.text = startTextState;
+//            }
+//            if (storyDialogue.trapRepair())
+//            {
+//                Debug.Log("Need to get salvage the resources first");
+//                string startTextState = "Need to get salvage the resources first";
+//                getGun_getTool.color = Color.white;
+//                getGun_getTool.text = startTextState;
+//            }
+//        }
+//        else if (_hud.counter >= MaxAmmoOrResources)
+//        {
+//            if (storyDialogue.killtheLion())
+//            {
+//                Debug.Log("Got all the ammo.");
+//                string startTextState = "Got all the availabe ammo.";
+//                getGun_getTool.color = Color.white;
+//                getGun_getTool.text = startTextState;
+//                equpped_Gun.SetActive(true);
+//                _guntoolEquipped = true;
+//            }
+//            if (storyDialogue.trapRepair())
+//            {
+//                Debug.Log("Got all the resources.");
+//                string startTextState = "Got all the availabe resources";
+//                getGun_getTool.color = Color.white;
+//                getGun_getTool.text = startTextState;
+//                equpped_tool.SetActive(true);
+//                _guntoolEquipped = true;
+//            }
+//        }
+//    }
 }

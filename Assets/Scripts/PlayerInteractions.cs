@@ -8,7 +8,10 @@ public class PlayerInteractions : MonoBehaviour
     [SerializeField] private HUD characterHUD;
     [SerializeField] private SalvageBuildings salvageHospital;
     [SerializeField] private TrapRepair salvageTrap;
-    [SerializeField] private Home_Trap homeTent;
+    [SerializeField] private Home_Tent homeTent;
+    [SerializeField] private int _TentSalvage;
+    [SerializeField] private int _HospitalSalage;
+    [SerializeField] private int _TrapSalave;
     [SerializeField] private SalvageBuildings[] salvageBuildings;
 
     [Header("Action Map Name Reference")]
@@ -83,7 +86,7 @@ public class PlayerInteractions : MonoBehaviour
                 {
                     return; // only count on initial press
                 }
-                characterHUD.counter++;
+                characterHUD.counter += _TentSalvage;
                 script.buildingSalvaged = true;
             }
         }
@@ -92,7 +95,7 @@ public class PlayerInteractions : MonoBehaviour
             if (salvageHospital._isTriggered == true)
             {
                 if (!context.performed) return; // only count on initial press
-                characterHUD.counter += 2;
+                characterHUD.counter += _HospitalSalage;
                 salvageHospital.buildingSalvaged = true;
             }
         }
@@ -114,7 +117,7 @@ public class PlayerInteractions : MonoBehaviour
                 {
                     if (!salvageTrap.buildingSalvaged)
                     {
-                        characterHUD.counter += 4;
+                        characterHUD.counter += _TrapSalave;
                         salvageTrap.buildingSalvaged = true;
                     }
                 }

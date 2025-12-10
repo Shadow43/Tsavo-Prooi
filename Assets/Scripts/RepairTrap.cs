@@ -19,7 +19,7 @@ public class RepairTrap : MonoBehaviour
 
     [SerializeField] private InputActionAsset playerControls;
     [SerializeField] private StoryDialogue characterDialogue;
-    [SerializeField] private Home_Trap hometrap;
+    [SerializeField] private Home_Tent homeTent;
     [SerializeField] private PlayerInteractions storyDialogue;
     [SerializeField] private HUD characterHud;
     [SerializeField] private Dialogue debugDialogue;

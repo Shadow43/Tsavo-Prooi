@@ -9,7 +9,7 @@ public class TrapRepair : MonoBehaviour
     [SerializeField] private GameObject salvage;
     [SerializeField] private TMP_Text textForSalvage;
 
-    [SerializeField] private Home_Trap hometrap;
+    [SerializeField] private Home_Tent homeTent;
 
     public bool _isTriggered;
     public bool buildingSalvaged;
@@ -68,7 +68,8 @@ public class TrapRepair : MonoBehaviour
         }
         if (storyDialogue.trapRepair())
         {
-            if (hometrap._guntoolEquipped == true)
+            if (homeTent._guntoolEquipped == true)
+            if (homeTent._guntoolEquipped == true)
             {
                 string startTextState = "Mouse click to repair trap";
                 textForSalvage.color = Color.red;
