@@ -14,7 +14,7 @@ public class LionsLair : MonoBehaviour
         {
             grayImage.SetActive(true);
             boundryTextObject.SetActive(true);
-            string startTextState = "<color=#e02046>\"Lions don't do this.\"</color><color=#d3cbcb> You shudder in horror. </color><color=#e02046>\"Lion's don't have a lair like this.\"</color>";
+            string startTextState = "<color=#e02046>\"Lions don't do this.\"</color><color=#d3cbcb> You shudder in horror. </color><color=#e02046>\"Lions never have a lair like this.\"</color>";
             boundryDialogue.text = startTextState;
         }
     }
