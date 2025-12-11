@@ -76,16 +76,15 @@ public class PlayerInteractions : MonoBehaviour
             bool salvagedbuilding = script.buildingSalvaged;
             if (inthetrigger == true)
             {
-
                 if (!context.performed) return; // only count on initial press
                 if (salvagedbuilding)
                 {
                     return;
                 }
-                if (!context.performed)
-                {
-                    return; // only count on initial press
-                }
+//                if (!context.performed)
+//                {
+//                    return; // only count on initial press
+//                }
                 characterHUD.counter += _TentSalvage;
                 script.buildingSalvaged = true;
             }
