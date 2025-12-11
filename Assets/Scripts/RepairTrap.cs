@@ -19,7 +19,7 @@ public class RepairTrap : MonoBehaviour
 
     [SerializeField] private InputActionAsset playerControls;
     [SerializeField] private StoryDialogue characterDialogue;
-    [SerializeField] private Home_Tent homeTent;
+    [SerializeField] private TrapRepair repairTheTrap;
     [SerializeField] private PlayerInteractions storyDialogue;
     [SerializeField] private HUD characterHud;
     [SerializeField] private Dialogue debugDialogue;
@@ -110,7 +110,10 @@ public class RepairTrap : MonoBehaviour
             {
 //                if (GameObject.FindWithTag("Lion Trap"))
 //                {
+                  if (repairTheTrap._isTriggered == true)
+                {
                     characterHud.counter -= 1;
+                }    
 //                }
                 if (hammermoving == false)
                 {
