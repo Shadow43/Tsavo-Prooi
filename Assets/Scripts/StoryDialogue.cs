@@ -44,29 +44,41 @@ public class StoryDialogue : MonoBehaviour
         {
             ForthdTextLine();
         }
-        if (storyDialogue.textnumber == 4)
+        if (storyDialogue.textnumber == 5)
         {
             FifthTextLine();
         }
-        if (storyDialogue.textnumber == 5)
+        if (storyDialogue.textnumber == 6)
         {
             SixthTextLine();
         }
-        if (storyDialogue.textnumber == 6)
+        if (storyDialogue.textnumber == 7)
         {
             SeventhTextLine();
         }
-        if (storyDialogue.textnumber == 7)
+        if (storyDialogue.textnumber == 8)
         {
             EigthTextLine();
         }
-        if (storyDialogue.textnumber == 8)
+        if (storyDialogue.textnumber == 9)
         {
             NinthTextLine();
         }
-        if (storyDialogue.textnumber == 9)
+        if (storyDialogue.textnumber == 10)
         {
             TenthTextLine();
+        }
+        if (storyDialogue.textnumber == 11)
+        {
+            EleventhTextLine();
+        }
+        if (storyDialogue.textnumber == 12)
+        {
+            TwelfthTextLine();
+        }
+        if (storyDialogue.textnumber == 13)
+        {
+            ThirteenthTextLine();
         }
     }
     public void StartText()
@@ -89,7 +101,7 @@ public class StoryDialogue : MonoBehaviour
     }
     public void SecondTextLine()
     {
-        string startTextState = "<color=#e02046>\"That blasted lion.\"</color><color=#d3cbcb> You mutter to yourself. </color><color=#e02046>\"The two have killed or driven off all the workers that were to help build the village.\"</color>";
+        string startTextState = "<color=#e02046>\"That blasted lion.\"</color><color=#d3cbcb> You mutter to yourself. </color><color=#e02046>\"These blasted Man-Eaters have either killed or driven off all the workers that were to help build the british colony.\"</color>";
         dialogueText.text = startTextState;
     }
     public void ThirdTextLine()
@@ -99,12 +111,27 @@ public class StoryDialogue : MonoBehaviour
     }
     public void ForthdTextLine()
     {
-        string startTextState = "<color=#d3cbcb>You start to get changed. </color><color=#e02046>\"I'm going to have to either trap or kill this last lion like I did the first lion.\"</color>";
+        string startTextState = "<color=#d3cbcb>Your mind drifts back to the letter you recieved from Pembroke Hastings who is in charge of the building the british colony here in Kenya.</color>";
         dialogueText.text = startTextState;
     }
     public void FifthTextLine()
     {
-        string startTextState = "<color=#e02046>\"Which should I do? Kill the lion or try to repair the trap to trap the maneater.\"</color>";
+        string startTextState = "<color=#d3cbcb>The letter was detailing about how several man eating lions have been terrorizing the worksite and Mr PemBroke was wanting your help in taking care of these smart brutes.</color>";
+        dialogueText.text = startTextState;
+    }
+    public void SixthTextLine()
+    {
+        string startTextState = "<color=#d3cbcb>The letter also stated that these brutes were super smart able to evade the traps already prepared as well as getting through the boma enclosure.</color>";
+        dialogueText.text = startTextState;
+    }
+    public void SeventhTextLine()
+    {
+        string startTextState = "<color=#d3cbcb>You start to get changed. </color><color=#e02046>\"I'm going to have to either trap or kill this last lion like I did the first lion.\"</color>";
+        dialogueText.text = startTextState;
+    }
+    public void EigthTextLine()
+    {
+        string startTextState = "<color=#e02046>\"Which should I do? Kill the lion or try to repair the trap to trap the maneater.\"</color><color=#d3cbcb> You ask yourself.</color>";
         dialogueText.text = startTextState;
         repairTrapButton.SetActive(true);
         killLionButton.SetActive(true);
@@ -133,11 +160,11 @@ public class StoryDialogue : MonoBehaviour
             storyDialogue.OnEnable();
         }
     }
-    public void SixthTextLine()
+    public void NinthTextLine()
     {
            if (storyDialogue.killtheLion())
         {
-            string startTextState = "<color=#e02046>\"I will kill the man-eating lion. But I'll need to salvage the ammo from the ruined buildings first\"</color>";
+            string startTextState = "<color=#e02046>\"I will kill the man-eating lion. But I'll need to salvage the ammo from the ruined buildings first\"</color><color=#d3cbcb> You mutter.</color>";
             dialogueText.text = startTextState;
             string continueE = "Press E to continue";
             eToContinue.color = Color.blue;
@@ -145,18 +172,18 @@ public class StoryDialogue : MonoBehaviour
         }
            if (storyDialogue.trapRepair())
         {
-            string startTextState = "<color=#e02046>\"I will trap the lion. But first I will need to repair the trap. The resources should be in the ruined buildings in the area.\"</color>";
+            string startTextState = "<color=#e02046>\"I will trap the lion. But first I will need to repair the trap. The resources should be in the ruined buildings in the area.\"</color><color=#d3cbcb> You mutter.</color>";
             dialogueText.text = startTextState;
             string continueE = "Press E to continue";
             eToContinue.color = Color.blue;
             eToContinue.text = continueE;
         }
     }
-    public void SeventhTextLine()
+    public void TenthTextLine()
     {
         if (storyDialogue.killtheLion())
         {
-            string startTextState = "<color=#e02046>\"Then I can come back here and get the shotgun.\"</color>";
+            string startTextState = "<color=#e02046>\"Then I can come back here and get the shotgun.\"</color><color=#d3cbcb> You mutter.</color>";
             dialogueText.text = startTextState;
             string continueE = "Press E to continue";
             eToContinue.color = Color.blue;
@@ -164,18 +191,18 @@ public class StoryDialogue : MonoBehaviour
         }
         if (storyDialogue.trapRepair())
         {
-            string startTextState = "<color=#e02046>\"Then I can come back here and get the hammer.\"</color>";
+            string startTextState = "<color=#e02046>\"Then I can come back here and get the hammer.\"</color><color=#d3cbcb> You mutter.</color>";
             dialogueText.text = startTextState;
             string continueE = "Press E to continue";
             eToContinue.color = Color.blue;
             eToContinue.text = continueE;
         }
     }
-    public void EigthTextLine()
+    public void EleventhTextLine()
     {
         if (storyDialogue.killtheLion())
         {
-            string startTextState = "<color=#e02046>\"Left mouse click fires the shotgun.\"</color>";
+            string startTextState = "<color=#006D6F>Left mouse click fires the shotgun.</color>";
             dialogueText.text = startTextState;
             string continueE = "Press E to continue";
             eToContinue.color = Color.blue;
@@ -183,21 +210,21 @@ public class StoryDialogue : MonoBehaviour
         }
         if (storyDialogue.trapRepair())
         {
-            string startTextState = "<color=#e02046>\"Left Mouse click uses the hammer.\"</color>";
+            string startTextState = "<color=#006D6F>Left Mouse click uses the hammer, when in proximity of the trap.</color>";
             dialogueText.text = startTextState;
             string continueE = "Press E to continue";
             eToContinue.color = Color.blue;
             eToContinue.text = continueE;
         }
     }
-    public void NinthTextLine()
+    public void TwelfthTextLine()
     {
         dialogueText.alignment = TextAlignmentOptions.Center;
         dialogueText.color = Color.cyan;
         string startTextState = "Please Press E to Begin Game";
         dialogueText.text = startTextState;
     }
-    public void TenthTextLine()
+    public void ThirteenthTextLine()
     {
         eToContinue.text = string.Empty;
         dialogueText.text = string.Empty;
@@ -207,7 +234,7 @@ public class StoryDialogue : MonoBehaviour
         Cursor.visible = false;
         storyDialogue.OnDisable();
         startedGame = true;
-//        lionPatrol.setPaused(false);
+        lionPatrol.setPaused(false);
     }
     public void OnMouseUpAsButton()
     {
